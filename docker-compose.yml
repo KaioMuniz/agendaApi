@@ -1,0 +1,16 @@
+services:
+  agendaapi-db:
+    image: postgres:16
+    container_name: agendaapi-postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: agendaapi
+      POSTGRES_USER: agendauser
+      POSTGRES_PASSWORD: agendapassword
+    volumes:
+      - agendaapi-db-data:/var/lib/postgresql/data
+
+volumes:
+  agendaapi-db-data:
