@@ -22,17 +22,14 @@ public class CategoriaController {
 	/*
 	 * Injeção de dependência (autoinicialização de um objeto)
 	 */
-	@Autowired
-	CategoriaRepository categoriaRepository;
-
+	@Autowired CategoriaRepository categoriaRepository;
+	@Autowired ModelMapper mapper;
+	
 	@Operation(summary = "Consulta de categorias", description = "Retorna todas as categorias cadastradas.")
 	@GetMapping
 	public List<CategoriaResponseDto> get() {
 
 		var categorias = categoriaRepository.findAll(); // consultando no banco de dados
-
-		var mapper = new ModelMapper(); // instanciando o model mapper
-
 		// copiando os dados de cada categoria trazida do banco para a classe dto
 		return categorias.stream().map(categoria -> mapper.map(categoria, CategoriaResponseDto.class))
 				.collect(Collectors.toList());

@@ -1,6 +1,7 @@
 	package br.com.cotiinformatica.entities;
 	
 	import java.util.Date;
+import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +18,7 @@ import jakarta.persistence.TemporalType;
 		
 		@Id
 		@Column
-		private String id;
+		private UUID id;
 		
 		@Column(length = 150, nullable = false)
 		private String titulo;
@@ -38,7 +39,7 @@ import jakarta.persistence.TemporalType;
 			super();
 		}
 		
-		public Tarefa(String id, String titulo, Date dataHora, Boolean finalizada, Categoria categoria) {
+		public Tarefa(UUID id, String titulo, Date dataHora, Boolean finalizada, Categoria categoria) {
 			super();
 			this.id = id;
 			this.titulo = titulo;
@@ -47,11 +48,11 @@ import jakarta.persistence.TemporalType;
 			this.categoria = categoria;
 		}
 	
-		public String getId() {
+		public UUID getId() {
 			return id;
 		}
 	
-		public void setId(String id) {
+		public void setId(UUID id) {
 			this.id = id;
 		}
 	

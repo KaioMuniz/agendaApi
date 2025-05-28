@@ -32,4 +32,17 @@ public class GlobalExceptionHandler {
 		
 		return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(
+			IllegalArgumentException exception,
+			WebRequest request
+			) {
+				
+		var body = new HashMap<String, Object>();
+		body.put("status", HttpStatus.BAD_REQUEST.value());
+		body.put("erro", exception.getMessage());
+		
+		return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+	}	
 }
