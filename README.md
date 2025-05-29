@@ -25,34 +25,48 @@ src/
         └── br/
             └── com/
                 └── cotiinformatica/
-                    ├── configurations/          # Configurações da aplicação
-                    ├── controllers/             # Controladores REST
+                    ├── configurations/          # Configurações gerais da aplicação (ex: segurança, CORS, beans)
+                    ├── controllers/             # Controladores REST que recebem e processam requisições HTTP
                     │   ├── CategoriasController.java
                     │   └── TarefasController.java
-                    ├── entities/                # Modelos de dados (Entidades)
+                    ├── dtos/                    # Data Transfer Objects para comunicação entre camadas
+                    │   ├── CategoriaDTO.java
+                    │   └── TarefaDTO.java
+                    ├── entities/                # Entidades JPA que representam tabelas do banco de dados
                     │   ├── Categoria.java
                     │   └── Tarefa.java
-                    ├── repositories/            # Interfaces para acesso a dados (JPA Repositories)
-                    ├── scripts/                 # Scripts auxiliares (se houver)
-                    └── ProjetoAgendaApiApplication.java  # Classe principal de inicialização
+                    ├── exceptions/              # Handlers e classes para tratamento de exceções personalizadas
+                    │   ├── ApiExceptionHandler.java
+                    │   └── ResourceNotFoundException.java
+                    ├── repositories/            # Interfaces JPA para acesso e manipulação dos dados no banco
+                    ├── scripts/                 # Scripts auxiliares e utilitários diversos (se houver)
+                    ├── services/                # Serviços com lógica de negócio da aplicação
+                    │   ├── CategoriaService.java
+                    │   └── TarefaService.java
+                    └── ProjetoAgendaApiApplication.java  # Classe principal para inicialização do Spring Boot
 ```
 
-### Componentes Principais
+### Descrição dos Componentes
 
-- **Controllers**: Camada responsável por receber e tratar as requisições HTTP.
-- **Entities**: Representam as tabelas no banco de dados com seus atributos.
-- **Repositories**: Interfaces para abstração da persistência dos dados.
-- **Configurations**: Configurações gerais do Spring e da aplicação.
+- **Configurations**: Configurações de aplicação, como segurança, beans, CORS e outras personalizações.
+- **Controllers**: Camada que expõe endpoints REST para interagir com as tarefas e categorias.
+- **DTOs**: Objetos para transferência segura e controlada de dados entre a API e os clientes.
+- **Entities**: Representação das tabelas do banco de dados com seus atributos.
+- **Exceptions**: Classes para tratamento centralizado de erros e exceções, garantindo respostas padronizadas.
+- **Repositories**: Interfaces que abstraem o acesso ao banco de dados, utilizando Spring Data JPA.
+- **Services**: Implementam a lógica de negócio da aplicação, sendo intermediárias entre Controllers e Repositories.
+- **Scripts**: Arquivos auxiliares, podem conter scripts SQL, scripts para tarefas automáticas ou utilitários.
+- **ProjetoAgendaApiApplication**: Classe principal que inicializa o contexto do Spring Boot.
 
 ---
 
 ## Tecnologias Utilizadas
 
 - **Java 11+**
-- **Spring Boot** (framework para desenvolvimento ágil de aplicações Java)
-- **Spring Data JPA** (para persistência de dados)
-- **Maven** (gerenciamento de dependências e build)
-- **Docker & Docker Compose** (containerização da aplicação)
+- **Spring Boot**
+- **Spring Data JPA**
+- **Maven**
+- **Docker & Docker Compose**
 
 ---
 
@@ -62,7 +76,7 @@ src/
 
 - JDK 11 ou superior instalado
 - Maven instalado
-- Docker (opcional, para rodar via container)
+- Docker (opcional)
 
 ### Execução Local
 
@@ -82,7 +96,7 @@ src/
    ```bash
    mvn spring-boot:run
    ```
-5. Acesse a aplicação pelo navegador ou cliente REST em:
+5. Acesse em:
    ```
    http://localhost:8080
    ```
@@ -106,31 +120,29 @@ src/
 
 ## Como Contribuir
 
-Contribuições são sempre bem-vindas! Para colaborar:
-
-1. Faça um fork deste repositório.
-2. Crie uma branch com sua feature ou correção:
+1. Faça um fork do projeto.
+2. Crie uma branch para sua feature:
    ```bash
    git checkout -b minha-nova-funcionalidade
    ```
-3. Faça commit das suas alterações:
+3. Commit suas alterações:
    ```bash
-   git commit -m "Descrição da sua alteração"
+   git commit -m "Descrição da alteração"
    ```
-4. Envie para o seu fork:
+4. Envie para seu fork:
    ```bash
    git push origin minha-nova-funcionalidade
    ```
-5. Abra um Pull Request para revisão.
+5. Abra um Pull Request para análise.
 
 ---
 
 ## Contato e Suporte
 
-Caso tenha dúvidas ou queira reportar problemas, abra uma issue no repositório ou entre em contato.
+Abra uma issue no repositório para dúvidas ou problemas, ou entre em contato diretamente.
 
 ---
 
 ## Licença
 
-Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](LICENSE) para detalhes.
+Licenciado sob a **MIT License**. Consulte o arquivo [LICENSE](LICENSE) para detalhes.
