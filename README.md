@@ -16,6 +16,9 @@ Agenda API é uma aplicação Java baseada em Spring Boot para gerenciamento sim
 
 O projeto segue a arquitetura **MVC (Model-View-Controller)**, garantindo separação clara das responsabilidades e facilitando manutenção e escalabilidade.
 
+### Swagger
+![image](https://github.com/user-attachments/assets/1be7f87e-eb21-4783-b817-aa8cb7c5b1a9)
+
 ### Organização dos Pacotes
 
 ```
