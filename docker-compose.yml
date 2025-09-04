@@ -1,0 +1,28 @@
+services:
+
+  agendaapi:
+    container_name: app_apiagenda
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8088"
+    networks:
+      - apiagenda-network
+
+  mongodb:
+    container_name: app_mongodb
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - apiagenda-network
+
+networks:
+  apiagenda-network:
+    driver: bridge
+
+volumes:
+  mongo_data:
