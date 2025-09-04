@@ -1,6 +1,6 @@
 
 # 📋 Projeto Agenda API
-
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTZhYnZyNm56cG1kZ3FhMjZzNGptbHAzMWJ4eGM0N3Z2cmplZHB5ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sAc0FGbH4gg62vIRuL/giphy.gif" alt="GIF do projeto" width="360">
 Este é um projeto de estudo desenvolvido durante o curso de **Spring Boot Web Developer**, com o objetivo de praticar conceitos como:
 
 - Desenvolvimento de APIs REST com Spring Boot  
